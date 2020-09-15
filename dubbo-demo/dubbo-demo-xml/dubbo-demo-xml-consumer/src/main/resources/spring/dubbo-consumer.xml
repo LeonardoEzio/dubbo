@@ -23,8 +23,9 @@
 
     <dubbo:application name="demo-consumer"/>
 
-    <dubbo:registry address="zookeeper://172.18.54.223:2181"/>
+    <dubbo:registry address="zookeeper://172.31.229.85:2181"/>
 
-    <dubbo:reference id="demoService" check="false" interface="org.apache.dubbo.demo.DemoService"/>
+    <!--<dubbo:reference id="demoService" check="false" stub="true" interface="org.apache.dubbo.demo.DemoService"/>-->
+    <dubbo:reference id="demoService" check="false" mock="force:org.apache.dubbo.demo.consumer.mock.DemoServiceMock" interface="org.apache.dubbo.demo.DemoService"/>
 
 </beans>
