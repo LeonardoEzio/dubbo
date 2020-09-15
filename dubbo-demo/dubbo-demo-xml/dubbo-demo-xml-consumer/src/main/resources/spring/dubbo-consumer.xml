@@ -23,9 +23,15 @@
 
     <dubbo:application name="demo-consumer"/>
 
-    <dubbo:registry address="zookeeper://172.31.229.85:2181"/>
+    <dubbo:registry address="zookeeper://172.28.36.176:2181"/>
 
+    <dubbo:reference id="demoService" check="false" interface="org.apache.dubbo.demo.DemoService"/>
+
+    <!-- 如果实现类和接口类不在同一个包下，则stub以及mock实现需要指定全限定类名 -->
+    <!--<dubbo:reference id="demoService" check="false" stub="org.apache.dubbo.demo.DemoServiceStub" interface="org.apache.dubbo.demo.DemoService"/>-->
+    <!--<dubbo:reference id="demoService" check="false" mock="force:org.apache.dubbo.demo.DemoServiceMock" interface="org.apache.dubbo.demo.DemoService"/>-->
+
+    <!-- 如果实现类和接口类在同一个包下，则开启stub以及mock开关即可-->
     <!--<dubbo:reference id="demoService" check="false" stub="true" interface="org.apache.dubbo.demo.DemoService"/>-->
-    <dubbo:reference id="demoService" check="false" mock="force:org.apache.dubbo.demo.consumer.mock.DemoServiceMock" interface="org.apache.dubbo.demo.DemoService"/>
-
+    <!--<dubbo:reference id="demoService" check="false" mock="force" interface="org.apache.dubbo.demo.DemoService"/>-->
 </beans>

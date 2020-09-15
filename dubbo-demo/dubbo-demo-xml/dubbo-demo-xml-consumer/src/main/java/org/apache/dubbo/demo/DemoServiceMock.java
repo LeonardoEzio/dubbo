@@ -1,4 +1,4 @@
-package org.apache.dubbo.demo.consumer.mock;
+package org.apache.dubbo.demo;
 
 import org.apache.dubbo.demo.DemoService;
 
